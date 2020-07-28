@@ -1,0 +1,27 @@
+{% load static %}
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="{% static 'css/materialize.min.css' %}" media="screen,projection" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Pat's Events</title>
+</head>
+<body>
+  <div class="col m6">
+  {% for post in posts %}
+      <div class="card horizontal small">
+          <div class="card-image">
+            <img src="https://materializecss.com/images/sample-1.jpg">
+          </div>
+          <div class="card-content">
+            <span class="card-title" style="text-align: center;">{{ post.title }}</span>
+            <p>Date Published - {{ post.published_date }}<p>
+          </div>
+          <div class="card-action">
+            <a href="/post/{{ post.title }}">Go to Post</a>
+          </div>
+        </div>
+  {% endfor %}
+  </div>
+
+</body>
