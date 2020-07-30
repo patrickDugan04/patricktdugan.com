@@ -10,7 +10,7 @@ def posts(request):
 
 
 def main(request):
-    return render(request, 'blog/main.html')
+    return render(request, 'main.html')
 
 def post(request, name):
 

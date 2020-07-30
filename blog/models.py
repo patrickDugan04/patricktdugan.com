@@ -9,7 +9,7 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-
+    image_url = models.TextField(default="https://i.kym-cdn.com/photos/images/facebook/001/430/011/c1d.png")
     def publish(self):
         self.published_date = timezone.now()
         self.save()

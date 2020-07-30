@@ -11,7 +11,7 @@
   {% for post in posts %}
       <div class="card horizontal small">
           <div class="card-image">
-            <img src="https://materializecss.com/images/sample-1.jpg">
+            <img src="{{ post.image_url }}">
           </div>
           <div class="card-content">
             <span class="card-title" style="text-align: center;">{{ post.title }}</span>
