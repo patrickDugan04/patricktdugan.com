@@ -7,17 +7,18 @@
 	<title>{{ post.title }}</title>
 </head>
 
-<body>
-  <h1 class="center-align">
+<body style="background-color: #383838;">
+  <h1 class="center-align" style="color: #FF0000;">
       {{ post.title }}
   </h1>
 
   <div class="center-align">
-
     <img src="{{ post.image_url }}" width="300" height="400">
     <br>
     <br>
-    {{ post.text }}
+    <div class="container" style = "color: #ffffff">
+      {{ post.text }}
+    </div>
   </div>
 
 </body>

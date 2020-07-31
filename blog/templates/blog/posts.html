@@ -6,21 +6,23 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Pat's Events</title>
 </head>
-<body>
-  <div class="col m6">
+<body style="background-color: #383838; color: #ffffff;">
+  <div class="container">
   {% for post in posts %}
-      <div class="card horizontal small">
+      <div class="card horizontal small" style="background-color: #ff0000;">
           <div class="card-image">
             <img src="{{ post.image_url }}">
           </div>
           <div class="card-content">
             <span class="card-title" style="text-align: center;">{{ post.title }}</span>
-            <p>Date Published - {{ post.published_date }}<p>
+            <p>Date Published - {{ post.published_date }}</p>
+            {{ post.text|truncatewords:10 }}
           </div>
-          <div class="card-action">
-            <a href="/post/{{ post.title }}">Go to Post</a>
+          <div class="card-action" style="background-color: #ffffff;">
+            <a href="/post/{{ post.title }}" style="color: #ff0000;">Go to Post</a>
           </div>
         </div>
+        <br>
   {% endfor %}
   </div>
 
