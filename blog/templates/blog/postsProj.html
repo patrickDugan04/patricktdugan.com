@@ -1,13 +1,12 @@
 {% load static %}
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <link href="{% static 'css/materialize.min.css' %}" media="screen,projection" rel="stylesheet" type="text/css" />
+  <link href="{% static 'css/materialize.min.css' %}" media="screen,projection" rel="stylesheet" type="text/css"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>{{ post.title }}</title>
+	<title>Pat's Events</title>
 </head>
-
-<body style="background-color: #383838;">
+<body style="background-color: #383838; color: #ffffff;">
   <nav style="background-color: #ff0000;">
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="left hide-on-med-and-down">
@@ -42,18 +41,28 @@
         </ul>
       </div>
     </nav>
-  <h1 class="center-align" style="color: #ff0000;">
-      {{ post.title }}
-  </h1>
-
-  <div class="center-align">
-    <img src="{{ post.image_url }}" width="300" height="400">
+  <div class="container">
+    <h1 class="center-align" style="text-align: center; color: #ffffff; font-size: 100px;">
+        A Coder's Adventures
+    </h1>
+  {% for post in posts %}
     <br>
-    <br>
-    <div class="container" style = "color: #ffffff">
-      {{ post.text }}
+    <div class="card horizontal small" style="background-color: #ff0000;">
+      <div class="card-image">
+        <img src="{{ post.image_url }}">
+      </div>
+      <div class="card-content">
+        <span class="card-title" style="text-align: center; color: #white; font-weight: bold;">{{ post.title }}</span>
+        <p>Date Published - {{ post.published_date }}</p>
+        {{ post.text|truncatewords:10 }}
+      </div>
+      <div class="card-action" style="background-color: #ffffff;">
+        <a href="/post/{{ post.title }}" style="color: #ff0000;">Go to Post</a>
+      </div>
     </div>
+  {% empty %}
+    <h3 style="text-align: center; color: #white; font-weight: bold;"> No Posts Yet </h3>
+  {% endfor %}
   </div>
 
 </body>
-<html>
