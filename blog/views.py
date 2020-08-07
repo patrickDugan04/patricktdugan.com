@@ -5,12 +5,12 @@ from .models import Post
 
 # Create your views here.
 def Hposts(request):
-    posts = Post.objects.filter(type = 'Hobby')
+    posts = Post.objects.filter(type='Hobby')
     return render(request, 'blog/posts.html', {'posts': posts})
 
 
 def Pposts(request):
-    posts = Post.objects.filter(type = 'Project')
+    posts = Post.objects.filter(type='Projects')
     return render(request, 'blog/postsProj.html', {'posts': posts})
 
 
@@ -18,6 +18,6 @@ def main(request):
     return render(request, 'main.html')
 
 
-def post(request, name):
-    post = Post.objects.filter(title=name)[0]
+def post(request, num):
+    post = Post.objects.filter(id=num)[0]
     return render(request, 'blog/post_temp.html', {'post' : post})

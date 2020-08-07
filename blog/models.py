@@ -2,13 +2,13 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
-
 class Post(models.Model):
 
     type = models.CharField(max_length=8, choices=(('Hobby','Hobby'),('Projects','Projects')), default='Hobby')
     author = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
+    id = models.AutoField(primary_key=True)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
